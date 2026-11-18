@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#1b3a5c">
+<meta name="description" content="salehiMaps - خرائط بدون اتصال للهاتف والكمبيوتر">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/style.css">
+<title>salehiMaps</title>
+</head>
+<body>
+
+<div id="app">
+  <canvas id="map"></canvas>
+
+  <!-- information boxes (top left like the original application) -->
+  <div id="infoBoxes">
+    <div class="info-box" id="coordBox" title="إحداثيات مركز الشاشة">
+      <span class="info-label">المركز</span>
+      <span class="info-value" id="coordValue">—</span>
+      <button class="mini" id="coordFormatBtn" title="تغيير صيغة الإحداثيات">⚙</button>
+    </div>
+    <div class="info-box" id="scaleBox" title="مقياس الرسم">
+      <div id="scaleBar"><span id="scaleLabel">—</span></div>
+    </div>
+    <div class="info-box hidden" id="targetBox" title="معلومات الهدف">
+      <span class="info-label">الهدف</span><span class="info-value" id="targetValue">—</span>
+    </div>
+    <div class="info-box hidden" id="gpsBox" title="معلومات الموقع">
+      <span class="info-label">GPS</span><span class="info-value" id="gpsValue">—</span>
+    </div>
+    <div class="info-box hidden" id="elevBox" title="الارتفاع">
+      <span class="info-label">الارتفاع</span><span class="info-value" id="elevValue">—</span>
+    </div>
+  </div>
+
+  <!-- zoom controls -->
+  <div id="zoomControls">
+    <button id="zoomIn" title="تكبير (انتقال للمستوى التالي)">+</button>
+    <input type="range" id="zoomSlider" min="0" max="22" step="0.05" value="6" title="مقياس دقيق داخل الخريطة الحالية">
+    <button id="zoomOut" title="تصغير">−</button>
+  </div>
+
+  <!-- screen center icon -->
+  <button id="centerIcon" title="مركز الشاشة - اضغط لقائمة سريعة">✛</button>
+  <div id="centerPopup" class="popup hidden">
+    <button data-act="target">🎯 تعيين كهدف</button>
+    <button data-act="placemark">📍 إنشاء معلم هنا</button>
+    <button data-act="copy">⧉ نسخ الإحداثيات</button>
+    <button data-act="share">↗ مشاركة / فتح بـ…</button>
+    <button data-act="search">⌕ بحث عن إحداثيات</button>
+  </div>
+
+  <!-- toast / status -->
+  <div id="toast" class="hidden"></div>
+
+  <!-- bottom features menu -->
+  <nav id="featureMenu">
+    <button data-menu="app" title="التطبيق">☰<span>التطبيق</span></button>
+    <button data-menu="maps" title="الخرائط والطبقات">🗺<span>الخرائط</span></button>
+    <button data-menu="marks" title="المعالم">📍<span>المعالم</span></button>
+    <button data-menu="gps" title="الموقع">🧭<span>الموقع</span></button>
+    <button data-menu="orient" title="الاتجاه">🧭<span>الاتجاه</span></button>
+  </nav>
+
+  <!-- slide-up panel -->
+  <section id="panel" class="hidden">
+    <header><h2 id="panelTitle">—</h2><button id="panelClose">✕</button></header>
+    <div id="panelBody"></div>
+  </section>
+
+  <!-- generic dialog -->
+  <div id="dialog" class="hidden">
+    <div class="dialog-card">
+      <header><h2 id="dialogTitle">—</h2><button id="dialogClose">✕</button></header>
+      <div id="dialogBody"></div>
+      <div id="dialogActions"></div>
+    </div>
+  </div>
+
+  <input type="file" id="fileInput" multiple hidden>
+  <input type="file" id="folderInput" webkitdirectory directory hidden>
+</div>
+
+<script src="js/util.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/landmarks.js"></script>
+<script src="js/aqx.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

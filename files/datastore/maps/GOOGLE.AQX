@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<aqx version="12" revision="5">
+	
+	<name>Google Maps</name>
+	<description>© Google · www.google.com/maps</description>
+	
+	<param name="google-m">800000000</param>
+	<param name="google-t">132</param>
+	<param name="google-v">1016</param>
+	
+	<source id="GMAPS" logo="google" type="roads" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Map</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-19" china-offset="true">
+			<update-delay>1M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=m@{$param:google-m}&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=m@{$param:google-m}&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<source id="GMBIKE" logo="google" type="roads" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Bike</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-19" china-offset="true">
+			<update-delay>1M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=m@{$param:google-m},bike&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=m@{$param:google-m},bike&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<source id="GTERR" logo="google" type="terrain" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Terrain</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-15" china-offset="true">
+			<update-delay>3M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=t@{$param:google-t},r@{$param:google-m}&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=t@{$param:google-t},r@{$param:google-m}&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<composite-source id="GHYBRID" type="hybrid" region="world">
+		<name>Google Hybrid</name>
+		<preview-url>{$srv}preview/GHYBRID.PREVIEW</preview-url>
+		<layer id="GEARTH"/>
+		<layer id="GROADS"/>
+	</composite-source>
+	
+	<source id="GEARTH" logo="google" type="satellite" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Satellite</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-14" ots="MGWD80NM">
+			<update-delay>1Y</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://ptc.psyberia.org/GSAT/?p={$ptc}&c={$app-c}]]></server>
+		</zoom-levels>
+		<zoom-levels z="15-20">
+			<update-delay>3M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://khm0.google.com/kh/v={$param:google-v}&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://khm1.google.com/kh/v={$param:google-v}&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<source id="GMPT" logo="google" type="roads" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Transit</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-19" china-offset="true">
+			<update-delay>1M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=m@{$param:google-m},transit&hl=en&src=app&opts=r&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=m@{$param:google-m},transit&hl=en&src=app&opts=r&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<source id="GMAPSLOC" logo="google" type="roads" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Map (Localized)</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<region>WRLD</region>
+		<type>ROAD</type>
+		<allow-export>false</allow-export>
+		<allow-bulk-download>false</allow-bulk-download>
+		<zoom-levels z="1-19" china-offset="true">
+			<update-delay>1M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=m@{$param:google-m}&hl=x-local&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=m@{$param:google-m}&hl=x-local&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<source id="GROADS" layer="true" logo="google" type="roads" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Roads Layer</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-20" china-offset="true">
+			<update-delay>1M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=h@{$param:google-m}&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=h@{$param:google-m}&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<source id="GBIKEL" layer="true" logo="google" type="roads" region="world" allow-export="false" allow-bulk-download="false">
+		<name>Google Bike Layer</name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-20" china-offset="true">
+			<update-delay>1M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=h@{$param:google-m},bike&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=h@{$param:google-m},bike&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+	<source id="GROADSPTL" layer="true" logo="google" type="roads" region="world" allow-export="false" allow-bulk-download="false">
+		<name><![CDATA[Google Roads & Transit Layer]]></name>
+		<data-source><![CDATA[http://maps.google.com/]]></data-source>
+		<preview-location>5.90,44.80,12</preview-location>
+		<zoom-levels z="1-20" china-offset="true">
+			<update-delay>1M</update-delay>
+			<referer><![CDATA[http://maps.google.com/]]></referer>
+			<server><![CDATA[http://mt0.google.com/vt/lyrs=h@{$param:google-m},transit&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+			<server><![CDATA[http://mt1.google.com/vt/lyrs=h@{$param:google-m},transit&hl=en&src=app&x={$x}{$ms}&y={$y}&z={$z}&s={$s}]]></server>
+		</zoom-levels>
+	</source>
+	
+</aqx>

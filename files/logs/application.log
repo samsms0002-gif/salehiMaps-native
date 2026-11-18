@@ -1,0 +1,171 @@
+# Current date is 2026-11-14
+[16:15:15.162] CoreBuilder: Android SDK 33 (13) with 512.0MB of max memory (MEMORY_EXTRA_LARGE)
+[16:15:15.177] CoreBuilder: SM-A426U1 (samsung; a42xuque/a42xuq/lito/qcom/samsung; arm64-v8a/armeabi-v7a/armeabi; Camera/HA; TP1A.220624.014/izwfn9pyr7zagyax)
+[16:15:15.178] yf2: initializing UI: screen density is 1.75 (system: 1.875, phone)
+[16:15:15.185] <OfflineMapsActivity.onWindowGainedFocus()>
+[16:15:15.188] fd1: All-In-One Offline Maps 3.19 (om149)
+[16:15:15.188] [u72.doScan()]
+[16:15:15.209] u72: - adding partition '/' (type: INT, canWrite: false, size: 0B)...
+[16:15:15.233] u72: - adding partition '/storage/emulated/0/' (type: INT, canWrite: false, size: 107.32GB, free: 10.3GB)...
+[16:15:15.237] u72: searching external storage devices...
+[16:15:15.241] u72: scanning known sd cards...
+[16:15:15.249] u72: scanning known mount points...
+[16:15:15.249] u72: scan finished
+[16:15:15.249] gd2: available storage locations are:
+[16:15:15.260] gd2:   '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/' (writable, u0_a404)
+[16:15:15.266] gd2: - storage 'جهاز تخزين (‏‪١٠٧ GB‬‏)' ('/storage/emulated/0/')
+[16:15:15.267] id1: auto-detected app storage folder is '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/'
+[16:15:15.267] id1: using existing user defined app storage folder '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/'
+[16:15:15.267] id1: application folder is '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/'
+[16:15:15.268] id1: using new (existing) datastore '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/datastore/'
+[16:15:15.271] id1: auto-detected app media folder is '/storage/emulated/0/Android/media/net.psyberia.offlinemaps/'
+[16:15:15.290] xq2: user settings file '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/user_settings.conf' is empty...
+[16:15:15.290] xq2: loading push settings from '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/datastore/push_settings.conf' (388B)...
+[16:15:15.291] ld1: - core.services.push.settings.version=170
+[16:15:15.291] ld1: - maps.features.onlinemaps.param=google-m:802000000
+[16:15:15.291] ld1: - maps.features.onlinemaps.param=google-t:132
+[16:15:15.291] ld1: - maps.features.onlinemaps.param=google-v:1016
+[16:15:15.292] ld1: - maps.features.onlinemaps.param=bing-og:2867
+[16:15:15.292] ld1: - maps.features.onlinemaps.param=bing-g:15625
+[16:15:15.292] ld1: - maps.features.onlinemaps.erroneous.tile.size.osmomsroads=6933
+[16:15:15.292] ld1: - maps.features.onlinemaps.erroneous.tile.size.osmotm=10287
+[16:15:15.292] ld1: 8 setting(s) loaded from 'push_settings.conf' in 1ms
+[16:15:15.294] g15: EPSG:4326 ('WGS 84'): successfully created from built-in geocs values
+[16:15:15.298] fr2: setting log file to '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/logs/application.log' (33 pending logs in buffer)
+[16:15:15.299] b60: manifest permissions are:
+[16:15:15.299] b60: permissions in the manifest are: ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION, ACCESS_NETWORK_STATE, INTERNET, VIBRATE, READ_MEDIA_AUDIO, READ_MEDIA_IMAGES, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, FOREGROUND_SERVICE, FOREGROUND_SERVICE_LOCATION, REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, POST_NOTIFICATIONS, com.android.vending.BILLING
+[16:15:15.300] b60: permissions states are:
+[16:15:15.300] b60: - ACCESS_FINE_LOCATION=Yes
+[16:15:15.300] b60: - POST_NOTIFICATIONS=No
+[16:15:15.301] b60: - READ_MEDIA_IMAGES=No
+[16:15:15.301] b60: - READ_MEDIA_AUDIO=No
+[16:15:15.302] b60: - READ_MEDIA_VIDEO=No
+[16:15:15.302] c52: Current memory usage is: 
+[16:15:15.302] c52: - Device: total=?, max=3.36GB, used=2.36GB (70 ٪), free=1019.2MB, threshold=141.01MB, low=NO
+[16:15:15.303] c52: - VM: total=512.0MB, allocated=512.0MB, used=4.85MB (1 ٪), free=507.15MB
+[16:15:15.303] c52: - Heap: total=?, allocated=15.43MB, used=13.99MB
+[16:15:15.322] c52: - Process: pss=33.44MB (dalvik=3.6MB, heap=5.69MB, other=23.66MB), private=29.41MB, shared=50.67MB
+[16:15:15.322] c52: - Total (20ms): allocated=527.43MB, used=18.84MB
+[16:15:15.322] cr2: loader current action: الإعدادات
+[16:15:15.323] qb2: preferences restored from app folder in 0ms
+[16:15:15.324] qb2: skipping restore of preferences from system...
+[16:15:15.324] id1: using media folder: true
+[16:15:15.325] cr2: loader current action: خريطة قاعدية
+[16:15:15.327] pf1: new main map is 'خريطة قاعدية' (old was 'null')
+[16:15:15.333] cr2: loader current action: الإعدادات
+[16:15:15.338] cr2: loader current action: جلسة العمل الافتراضية
+[16:15:15.339] hq4: current workspace is '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/datastore/'
+[16:15:15.341] dk0: setting tiles bitmap config to ARGB_8888
+[16:15:15.342] cr2: loader current action: Features
+[16:15:15.360] cr2: loader stage: استعادة العناصر…
+[16:15:15.534] wf5: updating param 'google-m' to value '802000000' (old value: 'null')
+[16:15:15.534] wf5: updating param 'google-t' to value '132' (old value: 'null')
+[16:15:15.534] wf5: updating param 'google-v' to value '1016' (old value: 'null')
+[16:15:15.535] wf5: updating param 'bing-og' to value '2867' (old value: 'null')
+[16:15:15.535] wf5: updating param 'bing-g' to value '15625' (old value: 'null')
+[16:15:15.535] cr2: loader current action: المزيد من المزايا!
+[16:15:15.536] cr2: loader current action: المعالم
+[16:15:15.541] cr2: loader current action: Cleanup cache...
+[16:15:15.542] cr2: loader current action: خرائط، طبقات
+[16:15:15.542] cr2: loader current action: البحث عن موقع
+[16:15:15.542] cr2: loader current action: وضع GPS
+[16:15:15.542] cr2: loader current action: البوصلة
+[16:15:15.542] l72: orientation is available: [ROTATION_VECTOR, ORIENTATION, MAGNETIC_FIELD]
+[16:15:15.542] cr2: loader current action: لوحة القيادة
+[16:15:15.543] cr2: loader current action: موقف في الوقت الحقيقي
+[16:15:15.543] cr2: loader current action: تأمين الشاشة
+[16:15:15.543] cr2: loader current action: تصدير خريطة
+[16:15:15.543] cr2: loader current action: عرض الشبكة
+[16:15:15.543] cr2: loader current action: عرض مقياس دائري
+[16:15:15.543] cr2: loader current action: شاشة التوقف
+[16:15:15.543] cr2: loader current action: دعم MEM
+[16:15:15.543] cr2: loader current action: معالم محلية
+[16:15:15.543] m04: using placemarks folder: '/storage/emulated/0/Android/media/net.psyberia.offlinemaps/OfflineMaps Placemarks/'
+[16:15:15.543] cr2: loader current action: دعم NativeGeo
+[16:15:15.543] cr2: loader current action: دعم GenLandmarksIo
+[16:15:15.544] cr2: loader current action: GPX (تصدير كـ)
+[16:15:15.544] cr2: loader current action: الهدف الأقرب تلقائيا
+[16:15:15.544] cr2: loader current action: رسم طريق تلقائيا
+[16:15:15.544] cr2: loader current action: خريطة قاعدية
+[16:15:15.544] cr2: loader current action: خرائط مفضلة مجموعات
+[16:15:15.545] ex2: 0 favorite set(s) restored
+[16:15:15.545] cr2: loader current action: الخرائط المخزنة
+[16:15:15.545] cr2: loader current action: خرائط تثبيت
+[16:15:15.546] cr2: loader current action: دعم AQX
+[16:15:15.546] cr2: loader current action: خرائط المجتمع
+[16:15:15.547] cr2: loader current action: تخزين منطقة
+[16:15:15.547] cr2: loader current action: عرض مستوى التخزين لطبقات الخريطة
+[16:15:15.547] cr2: loader current action: تصحيح إزاحة أنحاء الصين
+[16:15:15.547] cr2: loader current action: قارن
+[16:15:15.547] cr2: features loaded and initialized
+[16:15:15.547] cr2: loader stage: يرجى الانتظار
+[16:15:15.547] cr2: loader current action: خرائط، طبقات: استعادة العناصر…
+[16:15:15.547] cr2: loader current action: تحميل: خرائط، طبقات
+[16:15:15.548] cr2: loader current action: الخرائط المخزنة
+[16:15:15.550] l44: loading map file '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/datastore/maps/GOOGLE.AQX' (#2131362065)...
+[16:15:15.568] cr5: requesting instance for '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/datastore/maps/GOOGLE.AQX.GEARTH.IDX'
+[16:15:15.568] cr5: creating new instance of 'GOOGLE.AQX.GEARTH.IDX'
+[16:15:15.571] hd5:  - chunk #0, size: 995056697B (948.96MB), positions: #0 to #995056697
+[16:15:15.571] cr5:  - done, cache version: 2
+[16:15:15.573] v42: previously used map 'Google Satellite' restored
+[16:15:15.573] cr2: loader current action: الخرائط المخزنة
+[16:15:15.573] cr5: requesting instance for '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/datastore/maps/GOOGLE.AQX.GROADS.IDX'
+[16:15:15.573] cr5: creating new instance of 'GOOGLE.AQX.GROADS.IDX'
+[16:15:15.574] hd5:  - chunk #0, size: 667679657B (636.75MB), positions: #0 to #667679657
+[16:15:15.575] cr5:  - done, cache version: 2
+[16:15:15.575] v42: previously used map 'Google Roads Layer' restored
+[16:15:15.575] cr2: loader current action: المعالم: استعادة العناصر…
+[16:15:15.576] cr2: loader current action: تحميل «/storage/emulated/0/Android/media/net.psyberia.offlinemaps/OfflineMaps Placemarks/Unsorted placemarks/الحديدة صنعاء.rte»…
+[16:15:15.581] cr2: loader current action: تحميل «الحديدة صنعاء.rte»…
+[16:15:15.582] dg1: restoring used map painters...
+[16:15:15.582] pf1: new main map is 'Google Satellite' (old was 'خريطة قاعدية')
+[16:15:15.588] cr2: loader current action: دعم PSY: استعادة العناصر…
+[16:15:15.590] cr2: loader current action: عنصر مخصص: استعادة العناصر…
+[16:15:15.592] c52: Current memory usage is: 
+[16:15:15.592] c52: - Device: total=?, max=3.36GB, used=2.39GB (71 ٪), free=994.55MB, threshold=141.01MB, low=NO
+[16:15:15.592] c52: - VM: total=512.0MB, allocated=512.0MB, used=9.25MB (2 ٪), free=502.75MB
+[16:15:15.593] c52: - Heap: total=?, allocated=17.63MB, used=15.65MB
+[16:15:15.593] c52: - Total (1ms): allocated=529.63MB, used=24.9MB
+[16:15:15.593] cr2: loader current action: البحث عن موقع: استعادة العناصر…
+[16:15:15.593] cr2: loader current action: خرائط مفضلة مجموعات: استعادة العناصر…
+[16:15:15.593] cr2: entering ui thread safe mode...
+[16:15:15.593] cr2: loader stage: يرجى الانتظار
+[16:15:15.597] ut3: main map view now visible...
+[16:15:15.603] fa2: system multitouch activated
+[16:15:15.604] qd3: iap: updating remote information...
+[16:15:15.619] br2: core and features all setup!
+[16:15:15.620] gs0: starting post start async actions...
+[16:15:15.620] ut3: main map view now visible...
+[16:15:15.621] id1: detected internal files storage is '/data/user/0/net.psyberia.offlinemaps/files/'
+[16:15:15.622] bq2: restoring community maps list from '/data/user/0/net.psyberia.offlinemaps/files/connect_maps.cache' (60.97KB)
+[16:15:15.625] t22: location source(s) found: auto, gps, network, passive, fused, none enabled...
+[16:15:15.625] br2: dispatching intent 'android.intent.action.MAIN:null'
+[16:15:15.626] ls5: reading last push settings date from '/storage/emulated/0/Android/data/net.psyberia.offlinemaps/files/datastore/push_settings.date' (8B)
+[16:15:15.626] ls5: no need to update push settings (age: 42437232ms, delay: 86400000ms)
+[16:15:15.633] <s42.onViewInitialized()>
+[16:15:15.634] pf1: doInitDisplaySize(720,1600,true)
+[16:15:15.634] pf1: initialize canvas size to (10/10) (screen: 720x1600, tiles: 256x256, rot: true)
+[16:15:15.634] pf1: render settings: mode=MODE_100 (screen dp: 1.75px, painter_scale: x1.75, 1 map px = 1.0 screen px)
+[16:15:15.634] bf1: changing maximum bitmap pool size to 12
+[16:15:15.634] bf1: changing bitmap allocation size to 256x256
+[16:15:15.635] [ck3.doStartRestoreLandmarksAtStartupAsync_UIT()]
+[16:15:15.635] ck3: using new version backup
+[16:15:15.635] tt2: number of items to restore: 9
+[16:15:15.638] tt2: starting postponed restore of landmarks...
+[16:15:15.769] ck3: placemarks correctly restored in 134ms
+[16:15:15.769] <tt2.doCancel()>
+[16:15:16.481] <gd3._onRemoteProductsListReceived_UIT()>
+[16:15:16.488] <gd3._onRemotePurchasesListReceived_UIT()>
+[16:15:16.488] nd3: iap: found 0 purchase(s)...
+[16:15:16.490] qd3: iap: remote purchases processed
+[16:15:16.491] jd3: iap: updating modules availability...
+[16:15:16.491] jd3: notifying new modules states...
+[16:15:18.377] <OfflineMapsActivity.onPause()>
+[16:15:18.378] ut3: main map view now hidden...
+[16:15:18.381] [qb2._doSavePreferencesNowSync_ATS()]
+[16:15:18.381] dg1: saving used map painters...
+[16:15:18.382] [ck3.doSaveItemsOnPauseTo_AT()]
+[16:15:18.391] qb2: preferences gathered in 9ms
+[16:15:18.394] qb2: preferences saved to application folder in 3ms
+[16:15:18.407] qb2: preferences saved to system in 12ms
+[16:22:01.078] c52: Current memory usage is: 

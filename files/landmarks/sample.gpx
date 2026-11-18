@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="salehiMaps" xmlns="http://www.topografix.com/GPX/1/1">
+  <wpt lat="41.7200" lon="43.5000"><name>نقطة تجريبية</name></wpt>
+  <wpt lat="41.6500" lon="43.5600"><name>معلم 2</name></wpt>
+  <trk><name>مسار تجريبي</name><trkseg>
+    <trkpt lat="41.7200" lon="43.5000"/>
+    <trkpt lat="41.6900" lon="43.5300"/>
+    <trkpt lat="41.6500" lon="43.5600"/>
+  </trkseg></trk>
+</gpx>

@@ -1,0 +1,19 @@
+# Original binary map/data files (large, licensed with the phone copy)
+*.DAT
+*.IDX
+*.AQB
+*.AQE
+*.PREVIEW
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Local archives / generated bundles
+*.zip
+*.tar
+*.tar.gz
+
+# Editor / OS files
+.DS_Store
+Thumbs.db

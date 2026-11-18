@@ -1,0 +1,17 @@
+{
+  "name": "salehiMaps - خرائط بدون اتصال",
+  "short_name": "salehiMaps",
+  "description": "تطبيق خرائط بدون اتصال متوافق مع مخطط ملفات All-In-One OfflineMaps",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0e2233",
+  "theme_color": "#1b3a5c",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "data/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "data/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
