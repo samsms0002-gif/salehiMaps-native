@@ -1,0 +1,46 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "salehiMaps.Core", "src\salehiMaps.Core\salehiMaps.Core.csproj", "{B5E4C1A2-3D6F-4A1B-9C8E-0F1A2B3C4D5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "salehiMaps.Tests", "src\salehiMaps.Tests\salehiMaps.Tests.csproj", "{C6F5D2B3-4E70-4B2C-AD9F-102B3C4D5E6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "salehiMaps.UI", "src\salehiMaps.UI\salehiMaps.UI.csproj", "{D706E3C4-5F81-4C3D-BEA0-213C4D5E6F70}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "salehiMaps.Desktop", "src\salehiMaps.Desktop\salehiMaps.Desktop.csproj", "{E817F4D5-6092-4D4E-CFB1-324D5E6F7081}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "salehiMaps.Android", "src\salehiMaps.Android\salehiMaps.Android.csproj", "{F9280516-71A3-4E5F-D0C2-435E6F708192}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5E4C1A2-3D6F-4A1B-9C8E-0F1A2B3C4D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E4C1A2-3D6F-4A1B-9C8E-0F1A2B3C4D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E4C1A2-3D6F-4A1B-9C8E-0F1A2B3C4D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E4C1A2-3D6F-4A1B-9C8E-0F1A2B3C4D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6F5D2B3-4E70-4B2C-AD9F-102B3C4D5E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6F5D2B3-4E70-4B2C-AD9F-102B3C4D5E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6F5D2B3-4E70-4B2C-AD9F-102B3C4D5E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6F5D2B3-4E70-4B2C-AD9F-102B3C4D5E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D706E3C4-5F81-4C3D-BEA0-213C4D5E6F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D706E3C4-5F81-4C3D-BEA0-213C4D5E6F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D706E3C4-5F81-4C3D-BEA0-213C4D5E6F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D706E3C4-5F81-4C3D-BEA0-213C4D5E6F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E817F4D5-6092-4D4E-CFB1-324D5E6F7081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E817F4D5-6092-4D4E-CFB1-324D5E6F7081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E817F4D5-6092-4D4E-CFB1-324D5E6F7081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E817F4D5-6092-4D4E-CFB1-324D5E6F7081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9280516-71A3-4E5F-D0C2-435E6F708192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9280516-71A3-4E5F-D0C2-435E6F708192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9280516-71A3-4E5F-D0C2-435E6F708192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9280516-71A3-4E5F-D0C2-435E6F708192}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

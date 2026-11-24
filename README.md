@@ -1,66 +1,90 @@
 # salehiMaps
 
-> نسخة المستودع على GitHub: انسخ بيانات الخرائط الأصلية يدوياً كما هو موضح في [DATA.md](DATA.md).
+تطبيق خرائط أصلي بنسختين:
 
+- **Android** — مبني على .NET 8 + Avalonia.
+- **Windows** — مبني على .NET 8 + Avalonia.
 
-تطبيق خرائط بدون اتصال للهاتف والكمبيوتر، مبني ليعمل مع **نفس مخطط ملفات** تطبيق
-All-In-One OfflineMaps / AlpineQuest الذي زوّدتنا بمجلد `files` الخاص به.
+الهدف: قراءة بيانات الخرائط غير المتصلة بصيغ `AQX` و`DAT` و`AQB` و`AQE` و`tiles ZIP`، مع تجربة مستخدم مطابقة قدر الإمكان لتطبيق المرجع الذي تمت دراسته، وباسم وهوية `salehiMaps`.
 
-## التشغيل
+## مبدأ العمل
 
-- **سطح المكتب:** افتح `index.html` مباشرة في المتصفح (لا يحتاج خادماً)، أو شغّل
-  `sh start-server.sh` وافتح `http://localhost:8765/`.
-- **الهاتف:** انسخ مجلد `salehiMaps` كاملاً إلى الهاتف، ثم افتح `index.html` من مدير الملفات،
-  أو افتح الرابط المحلي عبر `start-server.sh` وثبّت التطبيق كـ PWA.
-- بعد الفتح: من قائمة **التطبيق ← اختيار مجلد البيانات** اختر مجلد `files` (أو المجلد الذي يحتويه)،
-  ثم من **الخرائط ← مسح بيانات الخرائط الأصلية** سيتم التعرف على الخرائط تلقائياً.
+تمت دراسة التطبيق المرجعي (المجلد `reference/Alpine`) باستخدام أدوات فك APK لتحديد:
 
-## ما الذي يقرأه من مجلد `files` (أو `data` حسب مكان نسخ البيانات)
+- صيغ الملفات وسلوكها.
+- أسماء الإعدادات وقوائم الواجهة.
+- ترتيب الطبقات ومعالجة الإحداثيات.
 
-| الملف | المعالجة |
-|---|---|
-| `datastore/maps/*.AQX` | يُقرأ كتعريف مصادر الخرائط (أسماء، روابط البلاطات، مستويات التكبير) |
-| `datastore/maps/*.DAT` + `*.IDX` | فهرسة مباشرة لبلاطات الخريطة؛ كل سجل يحتوي على `z/x/y` ثم صورة PNG |
-| `*.PREVIEW` | صور معاينة الخرائط |
-| `*.AQB`, `*.AQE` | يُعرض وصفها؛ تحويلها يحتاج أدوات التطبيق الأصلي |
-| `landmarks/`, `pictures/`, `icons/`, `logs/`, `backups/`, `exports/`, `audios/` | نفس مخطط المجلدات الأصلي |
-| GPX / KML / KMZ / GeoJSON / CSV / TSV | استيراد وتصدير المعالم |
-| ZIP (XYZ/TMS), صور `.map` معايرة OZI, MBTiles/GPKG/QCT (عبر `tools/import_maps.py`) | طبقات خرائط إضافية |
+ثم كُتبت النواة والواجهات من الصفر بلغة C#. لا يتم نسخ كود التطبيق المرجعي أو موارده المحمية. يُستخدم المرجع للتحليل فقط.
 
-### صيغة `.DAT` المكتشفة
+## هيكل المشروع
 
-السجل يبدأ قبل صورة PNG بـ 61 بايت:
-
-```
-offset +0  : 01                     (علامة السجل)
-offset +2  : x  (24-bit big endian)
-offset +6  : y  (24-bit big endian)
-offset +12 : z  (بايت واحد)
-offset +24 : a1 c2 ...              (توقيع السجل)
-offset +61 : PNG data               (256x256)، ثم حشو أصفار حتى السجل التالي
+```text
+salehiMaps/
+├─ docs/reverse-engineering/   # مواصفات الصيغ والسلوك المستخرجة بالتحليل
+├─ reference/Alpine/           # مرجع فك للقراءة فقط، مستبعد من Git
+├─ data/                       # بيانات الخرائط المحلية، مستبعدة من Git
+└─ src/
+   ├─ salehiMaps.Core/        # قارئ الصيغ + الإحداثيات + إدارة الخرائط
+   ├─ salehiMaps.Tests/       # اختبارات الوحدة
+   ├─ salehiMaps.Android/     # تطبيق أندرويد
+   └─ salehiMaps.Desktop/     # تطبيق Windows
 ```
 
-تم التحقق من ذلك على `GOOGLE.AQX.GROADS.DAT` (65,463 بلاطة، z=1..20) و
-`OSM.AQX.OSMOMSROADS.DAT` (118 بلاطة).
+## البناء
 
-## الأدوات
+تم التحقق محلياً من تثبيت `.NET SDK 8.0.428` وتشغيل اختبارات `salehiMaps.Core` بنجاح (11/11) بعد إصلاحات التنسيق/الإحداثيات.
 
 ```bash
-python3 tools/import_maps.py --inspect files/datastore/maps
-python3 tools/import_maps.py --dat files/datastore/maps/GOOGLE.AQX.GROADS.DAT --out maps/GOOGLE
-python3 tools/import_maps.py --sql mymap.mbtiles --out maps/MYMAP --tms
-python3 tools/make_icons.py
+export DOTNET_ROOT=/opt/dotnet
+export PATH="/opt/dotnet:$PATH"
+export TMPDIR=/tmp/opencode
+export DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_NOLOGO=1
+
+dotnet test src/salehiMaps.Tests/salehiMaps.Tests.csproj -c Release
+dotnet publish src/salehiMaps.Desktop/salehiMaps.Desktop.csproj -c Release -r win-x64 --self-contained true -o publish/desktop-win-x64
+dotnet workload install android
+dotnet publish src/salehiMaps.Android/salehiMaps.Android.csproj -c Release -f net8.0-android
 ```
 
-## الملفات
+ملاحظات بيئة حالية:
+- استعادة حزم NuGet كانت غير مستقرة عبر المرآة؛ قد يلزم إعادة المحاولة أو توفر كاش محلي.
+- `dotnet workload list` يفشل في هذه البيئة بخطأ إنشاء مجلد مؤقت، رغم أن `/tmp` قابل للكتابة؛ يجب التحقق قبل تثبيت workload Android.
+- بناء Android يتطلب workload `android` و Android SDK/Platform متوافق مع `net8.0-android`.
 
-- `index.html`, `css/style.css` — الواجهة العربية المتجاوبة
-- `js/util.js` — الرياضيات الجغرافية وصيغ الإحداثيات وقراءة ZIP
-- `js/storage.js` — مخطط المجلدات، مساحات العمل، النسخ الاحتياطي
-- `js/maps.js` — محرك البلاطات والصور المعايرة والشبكات
-- `js/aqx.js` — قارئ ملفات التطبيق الأصلي (AQX/DAT/IDX/PREVIEW/AQE)
-- `js/landmarks.js` — المعالم والقياس
-- `js/ui.js`, `js/app.js` — القوائم والتفاعل و GPS
+## البيانات
 
-> ملاحظة: التطبيق مبني كـ PWA لأن بيئة البناء المتاحة لا تحتوي على Android SDK؛
-> لذلك لا يوجد ملف APK، لكنه يعمل على أي متصفح حديث في الهاتف والكمبيوتر وبدون اتصال.
+لا تُضمّن ملفات الخرائط المرخّصة في Git. ضعها في مسار بيانات التطبيق على الجهاز أو في المجلد المحلي `data/` (مستبعد من Git).
+
+
+## ملاحظة عن النموذج القديم
+
+تم نقل النموذج الويبي السابق إلى `legacy-web/` للأرشفة فقط. التطبيقان الرسميان هما `salehiMaps.Android` و`salehiMaps.Desktop`، وكلاهما أصلي مبني على Avalonia وليس صفحة ويب.
+
+## حالة البناء
+
+تم تجهيز جميع مشاريع .NET (Core / UI / Tests / Desktop / Android)، وملف الحل `salehiMaps.sln`، وسكربت `scripts/build.sh`.
+لم يتم تشغيل البناء بعد لأن تنزيل .NET SDK فشل بسبب انقطاع الشبكة؛ بمجرد توفر SDK 8 سيتم تنفيذ:
+
+```bash
+bash scripts/build.sh
+```
+
+يتطلب بناء أندرويد أيضاً `dotnet workload install android` و Android SDK.
+
+
+## بيانات الخرائط
+
+يبحث التطبيق عن الخرائط بالترتيب التالي:
+
+1. المتغير البيئي `SALEHIMAPS_DATA`
+2. `data/` بجانب ملف التنفيذ
+3. `files/datastore/maps/` داخل مجلد العمل
+4. `data/` داخل مجلد العمل
+5. المسار النسبي لمجلد المشروع أثناء التطوير
+
+يمكنك تشغيل التطبيق مع تحديد المسار صراحةً:
+
+```bash
+SALEHIMAPS_DATA=/path/to/maps salehiMaps.Desktop
+```

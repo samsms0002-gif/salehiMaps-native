@@ -1,19 +1,44 @@
-# Original binary map/data files (large, licensed with the phone copy)
+# Build outputs
+bin/
+obj/
+publish/
+*.user
+*.suo
+*.apk
+*.aab
+*.msix
+*.exe
+*.dll
+*.pdb
+
+# Reverse-engineering reference (read-only, not our code)
+reference/
+
+# Licensed map data and large binaries
+data/
+files/
 *.DAT
 *.IDX
 *.AQB
 *.AQE
 *.PREVIEW
+*.DAT.*
+*.IDX.*
 
-# Python caches
-__pycache__/
-*.py[cod]
-
-# Local archives / generated bundles
-*.zip
-*.tar
-*.tar.gz
-
-# Editor / OS files
-.DS_Store
+# IDE / OS
+.vs/
+.vscode/
+.idea/
 Thumbs.db
+.DS_Store
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+
+# Local SDK/package bundles
+dotnet-sdk-*.tar.gz
+salehiMaps-nuget-local/
+salehiMaps-nuget-local.zip
+*.zip

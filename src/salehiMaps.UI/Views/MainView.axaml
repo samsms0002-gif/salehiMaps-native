@@ -1,0 +1,84 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="using:salehiMaps.UI.Controls"
+             x:Class="salehiMaps.UI.Views.MainView">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <Menu Grid.Row="0">
+            <MenuItem Header="خرائط، طبقات">
+                <MenuItem Header="استعراض الخرائط" Click="BrowseMaps_Click"/>
+                <MenuItem Header="الخرائط المعروضة"/>
+                <MenuItem Header="تخزين منطقة"/>
+                <Separator/>
+                <MenuItem Header="وضع عدم الاتصال"/>
+                <MenuItem Header="عرض مستوى التخزين لطبقات الخريطة"/>
+                <MenuItem Header="تصحيح إزاحة أنحاء الصين"/>
+            </MenuItem>
+            <MenuItem Header="المعالم">
+                <MenuItem Header="استيراد GPX/KML/CSV..." Click="ImportLandmarks_Click"/>
+                <MenuItem Header="مسح المعالم" Click="ClearLandmarks_Click"/>
+                <Separator/>
+                <MenuItem Header="المعالم المعروضة"/>
+                <MenuItem Header="إنشاء معلم"/>
+                <Separator/>
+                <MenuItem Header="أداة قياس الوقت"/>
+                <MenuItem Header="عرض معلومات الوجهة"/>
+                <MenuItem Header="عرض الخط للهدف"/>
+                <MenuItem Header="عرض أسماء المعالم"/>
+            </MenuItem>
+            <MenuItem Header="الإعدادات">
+                <MenuItem Header="نظام الإحداثيات: WGS84" Click="CoordWgs84_Click"/>
+                <MenuItem Header="نظام الإحداثيات: UTM" Click="CoordUtm_Click"/>
+                <MenuItem Header="نظام الإحداثيات: MGRS" Click="CoordMgrs_Click"/>
+                <Separator/>
+                <MenuItem Header="حفظ مساحة العمل" Click="SaveWorkspace_Click"/>
+            </MenuItem>
+            <MenuItem Header="نسخ احتياطي / استعادة">
+                <MenuItem Header="تصدير نسخة احتياطية..." Click="ExportBackup_Click"/>
+                <MenuItem Header="استعادة نسخة احتياطية..." Click="ImportBackup_Click"/>
+            </MenuItem>
+            <MenuItem Header="حول" Click="About_Click"/>
+        </Menu>
+
+        <Grid Grid.Row="1" ColumnDefinitions="260,*">
+            <Border Grid.Column="0" Background="#F4F6F8" BorderBrush="#B8C4CE" BorderThickness="0,0,1,0">
+                <DockPanel Margin="8">
+                    <TextBlock DockPanel.Dock="Top" Text="الخرائط المعروضة" FontWeight="SemiBold" Margin="4,4,4,8"/>
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="6" Margin="0,8,0,0">
+                        <Button Name="RefreshButton" Content="تحديث" Width="90"/>
+                        <Button Name="AddLayerButton" Content="إضافة كطبقة" Width="110"/>
+                    </StackPanel>
+                    <ListBox Name="DatasetsList" Background="Transparent" SelectionChanged="DatasetsList_SelectionChanged"/>
+                </DockPanel>
+            </Border>
+
+            <Grid Grid.Column="1">
+                <controls:MapCanvas Name="MapCanvas"/>
+                <TextBlock Text="salehiMaps"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="32"
+                           Foreground="#376996"/>
+                <Border HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="12"
+                        Background="#E6FFFFFF"
+                        CornerRadius="6"
+                        Padding="6">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <Button Name="ZoomOutButton" Content="−" Width="34"/>
+                        <TextBlock Name="ZoomText" Text="زووم: 4" VerticalAlignment="Center" MinWidth="60" TextAlignment="Center"/>
+                        <Button Name="ZoomInButton" Content="+" Width="34"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Border Grid.Row="2" Background="#EEF2F5" BorderBrush="#B8C4CE" BorderThickness="0,1,0,0" Padding="8,4">
+            <DockPanel>
+                <TextBlock Name="StatusText" Text="جاهز" DockPanel.Dock="Left"/>
+                <TextBlock Name="CoordinateText" Text="WGS84: 5.9000, 44.8000" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

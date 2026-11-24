@@ -1,0 +1,62 @@
+name: Build salehiMaps
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Test
+        run: dotnet test src/salehiMaps.Tests/salehiMaps.Tests.csproj -c Release
+
+  desktop-windows:
+    runs-on: windows-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Publish Desktop (win-x64)
+        run: dotnet publish src/salehiMaps.Desktop/salehiMaps.Desktop.csproj -c Release -r win-x64 --self-contained true -o publish/desktop-win-x64
+      - name: Upload Desktop artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: salehiMaps-desktop-win-x64
+          path: publish/desktop-win-x64
+
+  android:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Install Android workload
+        run: dotnet workload install android
+      - name: Publish Android
+        run: dotnet publish src/salehiMaps.Android/salehiMaps.Android.csproj -c Release -f net8.0-android
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: salehiMaps-android
+          path: |
+            src/salehiMaps.Android/bin/Release/net8.0-android/publish/*.apk
+            src/salehiMaps.Android/bin/Release/net8.0-android/publish/*.aab
+            src/salehiMaps.Android/bin/Release/net8.0-android/*Signed*.apk
+            src/salehiMaps.Android/bin/Release/net8.0-android/*Signed*.aab
+          if-no-files-found: warn
